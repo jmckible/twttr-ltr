@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  attr_accessor :tweets
 
   def self.authenticate(omniauth)
     User.where(uid: omniauth['uid']).first_or_create(
@@ -21,16 +22,33 @@ class User < ActiveRecord::Base
 
 
   def get_tweets
-    options = {}
-    options[:since_id] = last_tweet_id if last_tweet_id
-    tweets = client.home_timeline options
-    user.update_attribute :last_tweet_id, tweets.first.id
-    return tweets
+    get_latest_tweets
+
+    while !all_newest_tweets_retrieved?
+      get_more_tweets
+    end
+
+    update_attributes last_tweet_id: @tweets[0].id, scope_tweet_id: @tweets[1].id
+
+    return @tweets
   end 
 
+  def get_latest_tweets
+    @tweets = client.home_timeline count: 200
+  end
+
+  def all_newest_tweets_retrieved?
+    return true if last_tweet_id.nil?
+    !@tweets.detect{|t| t.id == last_tweet_id}.blank?
+  end
+
+  def get_more_tweets
+    more = client.home_timeline count: 200, since_id: scope_tweet_id, max_id: @tweets.last.id
+    @tweets = @tweets + more
+  end
+
   def digest
-    tweets = ['one', 'two', 'three']
-    TweetMailer.timeline(self, tweets).deliver unless tweets.empty?
+    TweetMailer.timeline(self, @tweets.reverse).deliver unless @tweets.empty?
   end
 
 end

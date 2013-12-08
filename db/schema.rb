@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131208025551) do
+ActiveRecord::Schema.define(version: 20131208183527) do
 
   create_table "users", force: true do |t|
     t.string   "uid"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20131208025551) do
     t.datetime "updated_at"
     t.integer  "last_tweet_id"
     t.string   "email"
+    t.integer  "scope_tweet_id"
   end
 
   add_index "users", ["uid"], name: "index_users_on_uid"
