@@ -50,8 +50,10 @@ class User < ActiveRecord::Base
   end 
 
   def get_latest_tweets
-    count = last_tweet_id.blank? ? 20 : 200
-    @tweets = client.home_timeline count: count
+    options = {}
+    options[:count] = last_tweet_id.blank? ? 20 : 200
+    options[:since_id] = last_tweet_id if last_tweet_id
+    @tweets = client.home_timeline options
   end
 
   def all_newest_tweets_retrieved?

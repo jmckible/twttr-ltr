@@ -6,7 +6,7 @@ class TweetMailer < ActionMailer::Base
     @tweets = tweets
 
     mail to: user.email,
-         from: "esophagus <#{ENV['SENDER']}>",
+         from: "esophagus <#{ENV['SMTP_SENDER']}>",
          subject: 'Twitter Digest'
   end
 
