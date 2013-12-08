@@ -8,6 +8,10 @@ html
     
   body
     #Content
-      #Main
-        #Yield
-          = yield
+      .main
+        h1 es.ophag.us
+        p.strong digest your tweets
+      - unless flash[:notice].blank?
+        #Flash= flash[:notice]
+      .main
+        = yield

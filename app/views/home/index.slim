@@ -1,17 +1,20 @@
-h1 esophagus
-
-
 - if logged_in?
-  = flash[:notice]
-  h2= current_user.nickname
-  = image_tag current_user.image
+  #Avatar= image_tag current_user.image
+  #Nickname= current_user.nickname
+
+  .clear
+  
+  br
+  br
 
   = form_for current_user do |form|
     p
-      | Email
+      | Send digest to &nbsp;
       = form.text_field :email
 
-    p Deliver my digest every:
+    br
+
+    p Every day at:
 
     p
       = form.check_box :morning
@@ -27,14 +30,16 @@ h1 esophagus
 
     p= form.submit 'Save Settings'
 
-  p= link_to 'View Example', current_user
+  br
+  br
+  br
 
   p= button_to 'Deliver Now', [:deliver, current_user], method: :put
-
-  p= link_to 'Log out', logout_path
+  p
+    = link_to 'Example', current_user
+    | &nbsp; | &nbsp;
+    = link_to 'Log out', logout_path
 
 - else
-  h2 digest your tweets
-
-  p Retrieve a digest of all your tweets, via email, up to three time a day
-  p= link_to 'Sign in with Twitter', '/auth/twitter'
+  p Retrieve an email digest of all your tweets throughout the day
+  p= link_to image_tag('sign_in.png'), '/auth/twitter'
