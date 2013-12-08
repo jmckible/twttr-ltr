@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131208183527) do
+ActiveRecord::Schema.define(version: 20131208190314) do
 
   create_table "users", force: true do |t|
     t.string   "uid"
@@ -24,8 +24,14 @@ ActiveRecord::Schema.define(version: 20131208183527) do
     t.integer  "last_tweet_id"
     t.string   "email"
     t.integer  "scope_tweet_id"
+    t.boolean  "morning",        default: false
+    t.boolean  "afternoon",      default: false
+    t.boolean  "evening",        default: false
   end
 
+  add_index "users", ["afternoon"], name: "index_users_on_afternoon"
+  add_index "users", ["evening"], name: "index_users_on_evening"
+  add_index "users", ["morning"], name: "index_users_on_morning"
   add_index "users", ["uid"], name: "index_users_on_uid"
 
 end

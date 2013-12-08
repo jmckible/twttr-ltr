@@ -1,4 +1,5 @@
 defaults: &defaults
+  host: 127.0.0.1:3000
   secret_key_base: alonghash
   mail:
     address: smtp.gmail.com

@@ -32,7 +32,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-gem 'haml'
+gem 'slim'
 
 gem 'twitter'
 gem 'twitter-text'

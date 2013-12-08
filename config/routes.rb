@@ -1,5 +1,10 @@
 Esophagus::Application.routes.draw do
-  get 'session/new'=>'sessions#new', as: 'login'
+
+  resources :users do
+    put 'deliver', on: :member
+    put 'deliver_test', on: :member
+  end
+
   match 'auth/twitter/callback'=>'sessions#create', as: 'twitter_callback', via: :all
   match 'logout'=>'sessions#destroy', as: 'logout', via: :all
 
