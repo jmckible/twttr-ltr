@@ -36,6 +36,8 @@
 
   p= button_to 'Deliver Now', [:deliver, current_user], method: :put
   p
+    = link_to 'GitHub', 'https://github.com/jmckible/esophagus'
+    | &nbsp; | &nbsp;
     = link_to 'Example', current_user
     | &nbsp; | &nbsp;
     = link_to 'Log out', logout_path
