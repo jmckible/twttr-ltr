@@ -19,8 +19,9 @@ end
 
 # Heroku
 group :production do
-  gem 'rails_12factor'
   gem 'pg'
+  gem 'rails_12factor'
+  gem 'unicorn'
 end
 
 ruby '2.0.0'
