@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     current_user.tweets = User.stub_tweets
     current_user.digest
     flash[:notice] = 'Digest Delivered'
-    redirect_to root_url
+    redirect_to current_user
   end
 
 end
