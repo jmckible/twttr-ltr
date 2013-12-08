@@ -9,4 +9,5 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Esophagus::Application.config.secret_key_base = '1946281a25b42c1bef4313ab84173eee247fcf76203a2ef44223d85626b6e12137725b431ba4589b22e5ecce2ea48bfcfa5d4e96ca05fbf47e161b6e70dfd98f'
+config = YAML.load_file("#{Rails.root}/config/app.yml")[Rails.env]
+Esophagus::Application.config.secret_key_base = config['secret_key_base']

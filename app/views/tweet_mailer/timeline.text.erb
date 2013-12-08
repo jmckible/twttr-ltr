@@ -1,0 +1,9 @@
+Hello <%= @user.nickname %>
+
+Here are your tweets:
+
+<%- @tweets.each do |tweet| -%>
+<%= tweet %>
+
+
+<%- end -%>

@@ -1,0 +1,150 @@
+/****************************/
+/*      G E N E R A L       */
+/****************************/
+a       { color: #003F87; text-decoration: none; }
+a:hover { text-decoration: underline;         }
+
+body {
+  color: #333;
+  font-family: helvetica, sans-serif;
+  background: #ccc;
+  margin: 0;
+}
+
+input[type=text] {
+  width: 30em;
+}
+
+.strong{font-weight: bold}
+
+.hide{display: none;}
+
+/****************************/
+/*       L A Y O U T        */
+/****************************/
+#Content {
+  margin: 0 10px 0 10px;
+  background: #fff;
+  padding: 1em 0 2em 1em;
+  border-left: 10px solid #999;
+  border-right: 10px solid #999;
+  border-bottom: 10px solid #999;
+}
+
+#Main {
+  padding: 0 5px 0 5px;
+}
+
+/****************************/
+/*  D A T A   T A B L E S   */
+/****************************/
+table {
+  border-collapse: collapse;
+}
+
+table th {
+  padding: 6px 4px 6px 8px;
+  color: #666;
+  text-align: left;
+  border: 1px solid #ccc;
+  background-color: #e6e6e6;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+
+table td {
+  vertical-align: middle;
+  padding: 8px 6px 8px 8px;
+  border-bottom: solid 1px #E6E6E6;
+  border-right: solid 1px #E6E6E6;
+  border-left: solid 1px #E6E6E6;
+  line-height: 16px;  
+}
+
+table td.green {
+  background-color: #9f0;
+}
+table td.yellow{
+  background-color: #ff0;
+}
+table td.red{
+  background-color: #f00;
+}
+
+table tr.sum td{
+  border-top: solid 2px #999;
+  font-weight: bold;
+}
+
+
+/****************************/
+/*  P A G I N A T I O N     */
+/****************************/
+
+.pagination_container {
+  margin-top: 12px;
+  text-align: center;
+}
+
+.pagination {
+
+  margin: 8px;
+
+  display: inline-block;
+  *display: inline;
+  /* IE7 inline-block hack */
+
+  *zoom: 1;
+
+  height: 36px;
+
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  font-size: 15px;
+}
+
+.pagination a, .pagination .current, .pagination .disabled, .pagination .gap {
+  float: left;
+  padding: 0 14px;
+  line-height: 34px;
+  text-decoration: none;
+  border: 1px solid #ccc;
+  border-left: none;
+}
+.pagination a:hover, .pagination .current {
+  background-color: #eee;
+  text-shadow: 0 1px 1px #fff;
+}
+.pagination em.current {
+  color: #666;
+  cursor: default;
+  font-weight: normal;
+  font-style: normal;
+}
+.pagination .disabled, .pagination .gap {
+  color: #999999;
+  background-color: transparent;
+  cursor: default;
+}
+.pagination :first-child {
+  -webkit-border-radius: 3px 0 0 3px;
+  -moz-border-radius: 3px 0 0 3px;
+  border-radius: 3px 0 0 3px;
+  border-left: 1px solid #ccc;
+}
+.pagination :last-child, .pagination .next_page { /* .next_page is for ie < 9 */
+  -webkit-border-radius: 0 3px 3px 0;
+  -moz-border-radius: 0 3px 3px 0;
+  border-radius: 0 3px 3px 0;
+}
+.pagination-centered {
+  text-align: center;
+}
+.pagination-right {
+  text-align: right;
+}

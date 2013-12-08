@@ -1,0 +1,22 @@
+defaults: &defaults
+  secret_key_base: alonghash
+  mail:
+    address: smtp.gmail.com
+    port: 587
+    domain: gmail.com
+    authentication: plain
+    enable_starttls_auto: true
+    user_name: username@gmail.com
+    password: password
+  twitter:
+    key: some_key
+    secret: some_secret
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
