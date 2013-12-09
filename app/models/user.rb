@@ -13,8 +13,8 @@ class User < ActiveRecord::Base
   # For testing
   def self.stub_tweets
     [
-      OpenStruct.new(id: 409762551455424512, text: 'Whoops I meant @RioTheatreSC obvs', user: OpenStruct.new(name: 'Kaki King', username: 'KakiKing', profile_image_url: 'http://pbs.twimg.com/profile_images/1541611628/t2As0hn4_normal')),
-      OpenStruct.new(id: 409761289850716160, text: 'I like brussels sprouts. I like grilled cheese. I like them together as well. http://t.co/YKRfzKUipw', user: OpenStruct.new(name: 'J. Kenji López-Alt' , username: 'TheFoodLab', profile_image_url: 'http://pbs.twimg.com/profile_images/378800000499801341/6a72fc4474f9d1afaff4f90e501791fe_normal.jpeg')) 
+      OpenStruct.new(id: 409762551455424512, text: 'Whoops I meant @RioTheatreSC obvs', url: 'https://twitter.com/KakiKing/status/409762551455424512', user: OpenStruct.new(name: 'Kaki King', username: 'KakiKing', profile_image_url: 'http://pbs.twimg.com/profile_images/1541611628/t2As0hn4_normal')),
+      OpenStruct.new(id: 409761289850716160, text: 'I like brussels sprouts. I like grilled cheese. I like them together as well. http://t.co/YKRfzKUipw', url: 'https://twitter.com/TheFoodLab/status/409761289850716160', user: OpenStruct.new(name: 'J. Kenji López-Alt' , username: 'TheFoodLab', profile_image_url: 'http://pbs.twimg.com/profile_images/378800000499801341/6a72fc4474f9d1afaff4f90e501791fe_normal.jpeg')) 
       # OpenStruct.new(id: 409757537555066880),
       # OpenStruct.new(id: 409756563877134337),
       # OpenStruct.new(id: 409755349743202304),

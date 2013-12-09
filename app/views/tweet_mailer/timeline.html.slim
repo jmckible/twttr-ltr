@@ -647,48 +647,6 @@ html
         }
       }
 
-      table.facebook td {
-        background: #3b5998;
-        border-color: #2d4473;
-      }
-
-      table.facebook:hover td {
-        background: #2d4473 !important;
-      }
-
-      table.twitter td {
-        background: #00acee;
-        border-color: #0087bb;
-      }
-
-      table.twitter:hover td {
-        background: #0087bb !important;
-      }
-
-      table.google-plus td {
-        background-color: #DB4A39;
-        border-color: #CC0000;
-      }
-
-      table.google-plus:hover td {
-        background: #CC0000 !important;
-      }
-
-      .template-label {
-        color: #ffffff;
-        font-weight: bold;
-        font-size: 11px;
-      }
-
-      .callout .wrapper {
-        padding-bottom: 20px;
-      }
-
-      .callout .panel {
-        background: #ECF8FF;
-        border-color: #b9e5ff;
-      }
-
       .header {
         background: #999999;
       }
@@ -725,28 +683,19 @@ html
         }
       }
 
+      .tweet-name {
+        font-size: 80%;
+      }
+      .tweet-body{
+        padding-left: 10px;
+      }
+
 
   body
     table.body
       tr
         td.center align='center' valign='top'
           center
-           
-            table.row.header
-              tr
-                td.center align='center'
-                  center
-            
-                    table class='container'
-                      tr
-                        td.wrapper.last
-                          table.twelve.columns
-                            tr
-                              td.six.sub-columns
-                              td.six.sub-columns.last style='text-align:right; vertical-align:middle;'
-                                span.template-label esophagus
-                              td.expander
-
             table.container
               tr
                 td
@@ -766,10 +715,13 @@ html
                         - @tweets.each do |tweet|
                           table.twelve.columns
                             tr
-                              td.one= image_tag tweet.user.profile_image_url
-                              td.two= tweet.user.name
-                              td.nine= twitter_format tweet.text
-                              td.expander
+                              td.one= link_to image_tag(tweet.user.profile_image_url), tweet.url
+                              td.two.tweet-name
+                                strong= tweet.user.name
+                                br
+                                = "@#{tweet.user.username}"
+                              td.nine
+                                .tweet-body= twitter_format tweet.text
                 
                   table.row
                     tr
