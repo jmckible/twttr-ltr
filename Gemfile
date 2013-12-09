@@ -4,7 +4,6 @@ gem 'rails', '4.0.2'
 
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
-gem 'newrelic_rpm'
 gem 'nokogiri'
 gem 'omniauth-twitter'
 gem 'premailer-rails'
