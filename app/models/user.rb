@@ -26,6 +26,10 @@ class User < ActiveRecord::Base
     ]
   end
 
+  scope :afternoon, ->{ where(afternoon: true) }
+  scope :evening,   ->{ where(evening: true)   }
+  scope :morning,   ->{ where(morning: true)   }
+  scope :night,     ->{ where(night: true)     }
 
   def client
     Twitter::REST::Client.new do |config|

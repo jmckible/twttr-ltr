@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    current_user.update_attributes params.require(:user).permit(:email, :morning, :afternoon, :evening)
+    current_user.update_attributes params.require(:user).permit(:email, :morning, :afternoon, :evening, :night)
     flash[:notice] = 'Settings Updated'
     redirect_to root_url
   end
