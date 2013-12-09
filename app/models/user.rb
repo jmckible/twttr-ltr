@@ -44,7 +44,9 @@ class User < ActiveRecord::Base
       get_more_tweets
     end
 
-    update_attributes last_tweet_id: @tweets[0].id, scope_tweet_id: @tweets[1].id
+    last_tweet_id  = @tweets[0].id.to_s if @tweets[0]
+    scope_tweet_id = @tweets[1].id.to_s if @tweets[1]
+    save
 
     return @tweets
   end 
@@ -52,13 +54,13 @@ class User < ActiveRecord::Base
   def get_latest_tweets
     options = {}
     options[:count] = last_tweet_id.blank? ? 20 : 200
-    options[:since_id] = last_tweet_id if last_tweet_id
+    options[:since_id] = scope_tweet_id if scope_tweet_id
     @tweets = client.home_timeline options
   end
 
   def all_newest_tweets_retrieved?
     return true if last_tweet_id.nil?
-    !@tweets.detect{|t| t.id == last_tweet_id}.blank?
+    !@tweets.detect{|t| t.id.to_s == last_tweet_id}.blank?
   end
 
   def get_more_tweets
