@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131209021612) do
+ActiveRecord::Schema.define(version: 20131209063109) do
 
   create_table "users", force: true do |t|
     t.string   "uid"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20131209021612) do
     t.boolean  "afternoon",      default: false
     t.boolean  "evening",        default: false
     t.boolean  "night",          default: false
+    t.boolean  "admin",          default: false
   end
 
   add_index "users", ["afternoon"], name: "index_users_on_afternoon"

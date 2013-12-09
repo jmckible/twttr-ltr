@@ -34,17 +34,21 @@
 
     p= form.submit 'Save Settings'
 
-  br
-  br
-  br
 
-  p= button_to 'Deliver Now', [:deliver, current_user], method: :put
-  p
-    = link_to 'GitHub', 'https://github.com/jmckible/esophagus'
-    | &nbsp; | &nbsp;
-    = link_to 'Example', current_user
-    | &nbsp; | &nbsp;
-    = link_to 'Log out', logout_path
+  - if current_user.admin?
+    br
+    br
+    br
+
+    p= button_to 'Deliver Now', [:deliver, current_user], method: :put
+    p
+      = link_to 'GitHub', 'https://github.com/jmckible/esophagus'
+      | &nbsp; | &nbsp;
+      = link_to 'Example', current_user
+      | &nbsp; | &nbsp;
+      = pluralize User.count, 'User'
+      | &nbsp; | &nbsp;
+      = link_to 'Log out', logout_path
 
 - else
   p Retrieve an email digest of all your tweets throughout the day
