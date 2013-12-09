@@ -17,6 +17,9 @@ class UsersController < ApplicationController
     current_user.digest
     flash[:notice] = 'Digest Delivered'
     redirect_to root_url
+  rescue Twitter::Error::TooManyRequests
+    flash[:notice] = 'Twitter says: Too Many Requests'
+    redirect_to root_url
   end
 
   def deliver_test
