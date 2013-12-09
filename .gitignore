@@ -15,4 +15,5 @@
 /log/*.log
 /tmp
 
-/config/*.yml
+/config/app.yml
+/config/database.yml
