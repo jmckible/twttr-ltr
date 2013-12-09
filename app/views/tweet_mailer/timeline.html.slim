@@ -715,7 +715,7 @@ html
                         - @tweets.each do |tweet|
                           table.twelve.columns
                             tr
-                              td.one= link_to image_tag(tweet.user.profile_image_url), tweet.url
+                              td.one= link_to image_tag(tweet.user.profile_image_url), tweet.url.to_s
                               td.two.tweet-name
                                 strong= tweet.user.name
                                 br
