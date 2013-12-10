@@ -48,8 +48,8 @@ class User < ActiveRecord::Base
       get_more_tweets
     end
 
-    last_tweet_id  = @tweets[0].id.to_s if @tweets[0]
-    scope_tweet_id = @tweets[1].id.to_s if @tweets[1]
+    self.last_tweet_id  = @tweets[0].id.to_s if @tweets[0]
+    self.scope_tweet_id = @tweets[1].id.to_s if @tweets[1]
     save
 
     return @tweets
