@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Esophagus by jmckible</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Esophagus</h1>
+        <p>Digest Twitter</p>
+
+        <p class="view"><a href="https://github.com/jmckible/esophagus">View the Project on GitHub <small>jmckible/esophagus</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/jmckible/esophagus/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/jmckible/esophagus/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/jmckible/esophagus">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="esophagus" class="anchor" href="#esophagus"><span class="octicon octicon-link"></span></a>es.ophag.us</h1>
+
+<p>Stop wasting time checking Twitter all day long. Instead, receive a digest of your timeline via email. </p>
+
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>Fork and clone this repository.</p>
+
+<p>Copy <code>config/database.yml.example</code> to <code>config.database.yml</code>. By default, sqlite is used</p>
+
+<p>Copy <code>config/app.yml.example</code> to <code>config/app.yml</code>. Enter your local development host. For example, it might be <code>0.0.0.0:3000</code>. Generate a <code>secret_key_base</code> to secure your session (128 hex digits.)</p>
+
+<p>Enter your mail server information. Defaults for GMail are provided.</p>
+
+<p>Register an application with Twitter at <a href="https://dev.twitter.com/apps/new">https://dev.twitter.com/apps/new</a></p>
+
+<p>Be sure to include a callback in the form of: <code>http://0.0.0.0:3000/auth/twitter/callback</code> and allow applications to "Sign in with Twitter"</p>
+
+<p>Back in <code>app.yml</code>, enter your <em>consumer</em> key and secret from Twitter.</p>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>Browse to <a href="http://0.0.0.0:3000">http://0.0.0.0:3000</a></p>
+
+<p>Click the Sign in with Twitter button and authorize access.</p>
+
+<p>Once redirected back to your application, enter your email address and click Save Settings.</p>
+
+<p>Test delivery by clicking the Deliver Now button</p>
+
+<h2>
+<a name="heroku" class="anchor" href="#heroku"><span class="octicon octicon-link"></span></a>Heroku</h2>
+
+<p>This repository can be deployed to Heroku. Since Heroku cannot use configuration files like <code>app.yml</code>, you must provide config values like so:</p>
+
+<p><code>$ heroku config:set HOST=mydomain.com</code></p>
+
+<p>You must set the following values:</p>
+
+<pre><code>HOST:                         mydomain.com
+SECRET_KEY_BASE:              somehash
+SMTP_ADDRESS:                 smtp.gmail.com
+SMTP_AUTHENTICATION:          plain
+SMTP_DOMAIN:                  gmail.com
+SMTP_ENABLE_STARTTLS_AUTO:    true
+SMTP_PASSWORD:                password
+SMTP_PORT:                    587
+SMTP_SENDER:                  username@gmail.com
+SMTP_USER_NAME:               username@gmail.com
+TWITTER_KEY:                  your_key
+TWITTER_SECRET:               your_secret
+</code></pre>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/jmckible">jmckible</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
